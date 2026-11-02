@@ -1,0 +1,49 @@
+/* No transitions and no CSS animations anywhere: all motion is jQuery. */
+* { box-sizing: border-box; }
+body { font-family: system-ui, Arial, sans-serif; background: #f3ede2; color: #2b2b2b; margin: 0; padding: 14px; }
+h1 { text-align: center; font-size: 22px; margin: 4px 0 12px; }
+#cases { display: flex; flex-wrap: wrap; gap: 6px; max-width: 1240px; margin: 0 auto 10px; }
+.case-btn, .sort-btn, .move-btn, #clear { font: inherit; font-size: 12px; cursor: pointer; border: 1px solid #5a3b2a;
+  background: #fff; border-radius: 6px; padding: 5px 8px; text-align: left; }
+.case-btn { width: 195px; }
+.case-btn:hover, .sort-btn:hover, .move-btn:hover, #clear:hover { background: #ffe9b8; }
+#clear { background: #5a3b2a; color: #fff; text-align: center; width: auto; }
+#result { max-width: 1240px; margin: 0 auto 10px; min-height: 44px; padding: 8px 12px; background: #fff;
+  border-left: 5px solid #ff9f1a; border-radius: 4px; font-size: 14px; }
+
+#house { max-width: 1240px; margin: 0 auto; border: 6px solid #5a3b2a; background: #fff; }
+.floor { display: flex; border-top: 4px solid #5a3b2a; }
+.floor:first-child { border-top: 0; }
+.floor-label { writing-mode: vertical-rl; transform: rotate(180deg); background: #e6cfae; padding: 8px 4px;
+  font-weight: bold; letter-spacing: 3px; font-size: 12px; text-align: center; }
+.rooms { flex: 1; display: grid; grid-template-columns: 1fr 1fr; }
+.room { padding: 8px 10px 12px; border-left: 4px solid #5a3b2a; min-height: 150px; }
+.room:first-child { border-left: 0; }
+#room-balcony { background: #dcebf7; } #room-hall { background: #fbf3e4; }
+#room-kitchen { background: #fffdf6; } #room-living { background: #f8f1e6; }
+.room-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+.room-head h3 { margin: 0; font-size: 16px; }
+.guests { display: flex; flex-wrap: wrap; align-items: flex-start; min-height: 110px; }
+
+.guest { position: relative; top: 0; left: 0; width: 72px; margin: 0 3px 6px; text-align: center; font-size: 11px;
+  flex: none; cursor: pointer; padding: 2px 0 4px; border-radius: 8px; }
+.avatar { display: block; width: 52px; height: 52px; margin: 0 auto 3px; border-radius: 50%; border: 4px solid #888;
+  background: #fff; box-sizing: content-box; }
+.color-red .avatar { border-color: #d9363e; }   .color-blue .avatar { border-color: #2f6fdb; }
+.color-green .avatar { border-color: #2a9d5c; } .color-black .avatar { border-color: #222; }
+.color-yellow .avatar { border-color: #f0a500; } .color-purple .avatar { border-color: #8a4fd0; }
+.badge { position: absolute; top: -2px; right: 4px; width: 20px; height: 20px; line-height: 20px; border-radius: 50%;
+  background: #1d4f91; color: #fff; font-size: 11px; }
+.name { font-weight: bold; } .time { color: #555; } .icons { min-height: 16px; font-size: 13px; }
+.found { background: #ffe08a; outline: 3px solid #ff9f1a; }
+.room.found { background: #ffe08a !important; outline: 4px solid #ff9f1a; outline-offset: -4px; }
+
+/* ---- Task 2 ---- */
+.sort-btn { padding: 3px 7px; } .sort-btn.on { background: #ffcf5c; }
+.guest-slot { flex: none; height: 1px; }
+.flying { pointer-events: none; background: transparent; }
+#card { position: absolute; display: none; z-index: 1000; background: #fff; border: 2px solid #5a3b2a;
+  border-radius: 12px; box-shadow: 0 6px 18px rgba(0,0,0,.35); overflow: hidden; }
+.card-body { padding: 12px 14px; font-size: 14px; }
+.card-body h4 { margin: 0 0 6px; font-size: 18px; } .card-body p { margin: 3px 0; }
+.card-body .move-btn { display: block; width: 100%; margin-top: 6px; }
